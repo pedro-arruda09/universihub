@@ -2,7 +2,7 @@
   "name": "universihub",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "pedro-arruda09",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -75,6 +75,9 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^src/(.*)$": "<rootDir>/$1"
+    }
   }
 }

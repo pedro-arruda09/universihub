@@ -1,10 +1,10 @@
+import * as modules from './modules';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import * as modules from './domain/modules';
+import { AppController } from './app.controller';
 import { ConfigModule, ConfigType } from '@nestjs/config';
-import globalConfig from './infrastructure/config/global.config';
+import globalConfig from './database/config/global.config';
 
 const modulesList = Object.keys(modules).map(moduleIndex => modules[moduleIndex as keyof typeof modules]);
 
