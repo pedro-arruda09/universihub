@@ -41,6 +41,9 @@ export class User {
     @IsEnum(Role)
     role: Role;
 
+    @Column({ default: '', nullable: true })
+    picture: string;
+
     @CreateDateColumn()
     created_at?: Date;
 

@@ -1,7 +1,9 @@
 import { EnrollmentsService } from 'src/services/enrollments.service';
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { CreateEnrollmentDto } from '../common/dtos/enrollments/create-enrollment.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('enrollments')
 @Controller('enrollments')
 export class EnrollmentsController {
     constructor(private readonly enrollmentsService: EnrollmentsService) {}

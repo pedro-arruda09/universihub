@@ -2,7 +2,9 @@ import { SubjectsService } from 'src/services/subjects.service';
 import { CreateSubjectDto } from '../common/dtos/subjects/create-subject.dto';
 import { UpdateSubjectDto } from '../common/dtos/subjects/update-subject.dto';
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('subjects')
 @Controller('subjects')
 export class SubjectsController {
     constructor(private readonly subjectsService: SubjectsService) {}

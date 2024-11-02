@@ -6,7 +6,9 @@ import { AuthTokenGuard } from '../auth/guards/auth.token.guard';
 import { CreateGradeDto } from '../common/dtos/grades/create-grade.dto';
 import { UpdateGradeDto } from '../common/dtos/grades/update-grade-dto';
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('grades')
 @Controller('grades')
 export class GradesController {
     constructor(private readonly gradesService: GradesService) {}
