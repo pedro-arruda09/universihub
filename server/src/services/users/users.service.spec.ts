@@ -70,6 +70,7 @@ describe('UsersService', () => {
                 course_id: 1,
                 role: Role.Student,
                 password_hash: passwordHash,
+                picture: 'profile.jpg',
             };
 
             jest.spyOn(hashingService, 'hash').mockResolvedValue(passwordHash);
@@ -177,6 +178,7 @@ describe('UsersService', () => {
                 course_id: 1,
                 role: Role.Student,
                 password_hash: '123456',
+                picture: 'profile.jpg',
             };
             const findUserPayload = { where: { deleted_at: null, id: 1 } };
 

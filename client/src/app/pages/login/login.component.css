@@ -1,0 +1,110 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 34px;
+    align-items: center;
+    padding-top: 36px;
+    width: 100%;
+    align-self: flex-start;
+}
+
+input {
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #264653;
+    font-size: 20px;
+    width: 60%;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid #264653;
+}
+
+.forgot-password-label {
+    font-size: 14px;
+    color: #E76F51;
+    text-align: left;
+}
+
+.forgot-password-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.form-card {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-card h1 {
+    color: #264653;
+    font-weight: 600;
+    font-size: 40px;
+    margin: 0;
+}
+
+.register-label {
+    font-size: 18px;
+    color: #E76F51;
+    font-weight: 500;
+}
+
+.register-section {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-bottom: 48px;
+}
+
+.register-section h5 {
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0;
+    color: #264653;
+}
+
+.form-google-button {
+    padding: 16px;
+    border: transparent;
+    border-radius: 24px;
+    width: 100%;
+    color: #264653;
+    cursor: pointer;
+    width: 60%;
+    font-weight: 400;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.form-button {
+    padding: 16px;
+    border: transparent;
+    border-radius: 24px;
+    width: 100%;
+    background-color: #264653;
+    color: white;
+    cursor: pointer;
+    width: 60%;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.subtitle-label {
+    margin-top: 16px;
+    font-weight: 400;
+    color: #264653;
+}
+
+h1, h5 {
+    margin: 0;
+}

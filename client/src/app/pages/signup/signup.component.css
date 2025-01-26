@@ -1,0 +1,60 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 34px;
+    align-items: center;
+    padding-top: 36px;
+    width: 100%;
+    align-self: flex-start;
+}
+
+input {
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #264653;
+    font-size: 20px;
+    width: 60%;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid #264653;
+}
+
+
+.form-button {
+    padding: 16px;
+    border: transparent;
+    border-radius: 24px;
+    width: 100%;
+    background-color: #264653;
+    color: white;
+    cursor: pointer;
+    width: 60%;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.course-select {
+    width: 60%;
+    border-radius: 24px;
+    padding: 16px;
+    font-size: 18px;
+}
+
+.has-account-label {
+    font-size: 14px;
+    color: #E76F51;
+    text-align: left;
+}
+
+.has-account-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
