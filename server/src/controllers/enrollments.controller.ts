@@ -32,4 +32,9 @@ export class EnrollmentsController {
     remove(@Param('id') id: string) {
         return this.enrollmentsService.remove(+id);
     }
+
+    @Get('user/:id')
+    findByUserId(@Param('id') id: string) {
+        return this.enrollmentsService.findByUserId(+id);
+    }
 }

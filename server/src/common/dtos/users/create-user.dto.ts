@@ -30,7 +30,7 @@ export class CreateUserDto {
     birth_date: string;
 
     @IsString()
-    address: string;
+    address?: string;
 
     @IsNumber()
     @IsPositive()

@@ -15,6 +15,15 @@ async function bootstrap() {
         new ParseIntIdPipe(),
     );
 
+    app.enableCors({
+        origin: 'http://localhost:4200',
+        methods: 'GET,POST,PUT,DELETE,OPTIONS',
+        allowedHeaders: 'Content-Type, Authorization',
+        credentials: true,
+        optionsSuccessStatus: 200,
+        preflightContinue: false,
+    });
+
     const documentBuilderConfig = new DocumentBuilder()
         .setTitle('Universihub')
         .setDescription('An interactive system to manage graduation courses and its participants.')
@@ -23,6 +32,7 @@ async function bootstrap() {
         .build();
     const document = SwaggerModule.createDocument(app, documentBuilderConfig);
     SwaggerModule.setup('docs', app, document);
+
     await app.listen(3000);
 }
 bootstrap();

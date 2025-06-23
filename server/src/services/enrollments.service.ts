@@ -45,6 +45,7 @@ export class EnrollmentsService {
                     id,
                     deleted_at: null,
                 },
+                relations: ['classroom_id', 'classroom_id.subject_id']
             });
 
             if (!enrollment) {
@@ -89,6 +90,55 @@ export class EnrollmentsService {
             return this.enrollmentRepository.softDelete(id);
         } catch (error) {
             throw new Error('Could not remove enrollment.');
+        }
+    }
+
+    mountUserEnrollmentsData(enrollments) {
+        const userEnrollments = enrollments.map(enrollment => {
+            console.log(enrollment, 'enrollment');
+            return {
+                enrollment: {
+                    id: enrollment.id,
+                },
+                classroom: {
+                    id: enrollment.classroom_id.id,
+                    year: enrollment.classroom_id.year,
+                    semester: enrollment.classroom_id.semester,
+                },
+                subject: {
+                    id: enrollment.classroom_id.subject_id.id,
+                    name: enrollment.classroom_id.subject_id.name,
+                },
+                professor: {
+                    id: enrollment.classroom_id.user_id.id,
+                    name: enrollment.classroom_id.user_id.name,
+                },
+            }
+        });
+
+        return userEnrollments
+    }
+
+    async findByUserId(userId: number) {
+        try {
+            const enrollments = await this.enrollmentRepository
+                .createQueryBuilder('enrollment')
+                .leftJoinAndSelect('enrollment.classroom_id', 'classroom')
+                .leftJoinAndSelect('classroom.subject_id', 'subject')
+                .leftJoinAndSelect('classroom.user_id', 'professor')
+                .where('enrollment.user_id = :userId', { userId })
+                .andWhere('enrollment.deleted_at IS NULL')
+                .getMany();
+
+            if (!enrollments) {
+                throw new Error('User enrollments not found.');
+            }
+
+            const userEnrollments = this.mountUserEnrollmentsData(enrollments);
+
+            return userEnrollments;
+        } catch (error) {
+            throw new Error('Could not fetch user enrollments');
         }
     }
 }

@@ -45,7 +45,12 @@ export class AuthService {
             throw new UnauthorizedException('Wrong credentials.');
         }
 
-        const getAccessToken = await this.getAccessToken(user);
-        return getAccessToken;
+        const accessToken = await this.getAccessToken(user);
+
+        return {
+            user_name: user.name,
+            user_id: user.id,
+            token: accessToken
+        };
     }
 }

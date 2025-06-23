@@ -1,4 +1,4 @@
-import { IsNumber } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 import { User } from 'src/database/entities/user.entity';
 import { Subject } from 'src/database/entities/subject.entity';
 import { Enrollment } from 'src/database/entities/enrollment.entity';
@@ -37,6 +37,10 @@ export class Classroom {
 
     @OneToMany(() => Enrollment, enrollment => enrollment.classroom_id)
     enrollment: Enrollment[];
+
+    @Column('text', { array: true })
+    @IsString()
+    day_of_week: number[];
 
     @CreateDateColumn()
     created_at?: Date;
