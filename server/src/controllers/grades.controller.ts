@@ -14,14 +14,14 @@ export class GradesController {
     constructor(private readonly gradesService: GradesService) {}
 
     @Post()
-    @Roles(Role.Professor)
+    @Roles(Role.PROFESSOR)
     @UseGuards(AuthRoleGuard)
     create(@Body() createGradeDto: CreateGradeDto) {
         return this.gradesService.create(createGradeDto);
     }
 
     @Get()
-    @Roles(Role.Professor)
+    @Roles(Role.PROFESSOR)
     @UseGuards(AuthRoleGuard)
     findAll(@Param('id') enrollment_id: string) {
         return this.gradesService.findAll(+enrollment_id);

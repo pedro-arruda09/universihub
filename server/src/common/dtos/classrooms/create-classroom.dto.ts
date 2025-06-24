@@ -1,4 +1,4 @@
-import { IsArray, IsNumber, IsPositive } from 'class-validator';
+import { IsNumber, IsPositive, IsString } from 'class-validator';
 
 export class CreateClassroomDto {
     @IsNumber()
@@ -16,6 +16,6 @@ export class CreateClassroomDto {
     @IsPositive()
     user_id: number;
 
-    @IsArray()
-    day_of_week: number[];
+    @IsString()
+    room_code: string;
 }

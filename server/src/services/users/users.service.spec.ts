@@ -57,7 +57,7 @@ describe('UsersService', () => {
                 password: '123456',
                 birth_date: '2000-01-01',
                 address: '123, Main Street',
-                course_id: 1,
+                major_id: 1,
             };
             const userPassword = createUserDto.password;
             const passwordHash = 'hashedPassword';
@@ -67,8 +67,8 @@ describe('UsersService', () => {
                 email: 'johndoe@gmail.com',
                 birth_date: '2000-01-01',
                 address: '123, Main Street',
-                course_id: 1,
-                role: Role.Student,
+                major_id: 1,
+                role: Role.STUDENT,
                 password_hash: passwordHash,
                 picture: 'profile.jpg',
             };
@@ -135,8 +135,8 @@ describe('UsersService', () => {
                     email: 'johndoe@gmail.com',
                     birth_date: '2000-01-01',
                     address: '123, Main Street',
-                    course_id: 1,
-                    role: Role.Student,
+                    major_id: 1,
+                    role: Role.STUDENT,
                     password_hash: '123456',
                 } as User,
             ];
@@ -175,8 +175,8 @@ describe('UsersService', () => {
                 email: 'johndoe@gmail.com',
                 birth_date: '2000-01-01',
                 address: '123, Main Street',
-                course_id: 1,
-                role: Role.Student,
+                major_id: 1,
+                role: Role.STUDENT,
                 password_hash: '123456',
                 picture: 'profile.jpg',
             };

@@ -1,0 +1,41 @@
+<app-auth>
+  <div class="login">
+    <div class="login__header">
+      <h1 class="login__title">Login</h1>
+      <p class="login__subtitle">Access Universihub and manage your courses</p>
+    </div>
+
+    <form [formGroup]="loginForm" class="login__form">
+      <div class="login__form-input-wrapper">
+        <label for="email" class="login__label">Email</label>
+        <input id="email" type="email" formControlName="email" placeholder="your@email.com" required
+          class="login__input" />
+        <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched"
+          class="error-message">
+          Email is required.
+        </div>
+      </div>
+
+      <div class="login__form-input-wrapper">
+        <label for="password" class="login__label">Password</label>
+        <input id="password" type="password" formControlName="password" placeholder="••••••••" required
+          class="login__input" />
+        <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+          class="error-message">
+          Password is required.
+        </div>
+      </div>
+
+      <div class="login__form-button-wrapper">
+        <button type="submit" [disabled]="!loginForm.valid" (click)="submit()" class="login__button">
+          Sign In
+        </button>
+      </div>
+
+      <div class="login__form-register-link">
+        <span>Don't have an account?</span>
+        <a (click)="navigateToRegister()" class="login__register-link-text cpointer">Sign Up</a>
+      </div>
+    </form>
+  </div>
+</app-auth>

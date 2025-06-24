@@ -1,0 +1,14 @@
+* {
+  height: 100%;
+  background-color: rgba(251,250,251,255);
+}
+
+app-sidebar {
+  flex-shrink: 0;
+}
+
+.main-content {
+  padding: 32px 16px;
+  flex: 1;
+  width: 100%;
+}

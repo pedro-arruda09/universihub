@@ -1,0 +1,217 @@
+.landing-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+
+  &__about {
+    background: linear-gradient(to right, rgba(254, 139, 92, 0.04) 0%, #FFF8F5 6%, #FFF8F5 100%);
+    height: 100%;
+    width: 55%;
+    transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.professor {
+      background: var(--pine-green);
+    }
+
+    &-content {
+      padding: 32px 144px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 65%;
+      gap: 24px;
+    }
+
+    &-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &-icon {
+        color: var(--coral);
+        font-size: 48px;
+        width: 48px;
+        height: 48px;
+        transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &.professor {
+          color: var(--anti-flash-white);
+        }
+      }
+
+      &-message {
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--coral);
+        transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &.professor {
+          color: var(--anti-flash-white);
+        }
+      }
+    }
+
+    &-description {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--pine-green);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+      transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &-text {
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--pine-green);
+        transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &.professor {
+          color: var(--anti-flash-white);
+        }
+      }
+    }
+
+    &-actions {
+      display: flex;
+      gap: 16px;
+
+      &-btn {
+        padding: 16px 24px;
+        border-radius: 8px;
+        font-size: 24px;
+        font-weight: 400;
+        transition: transform 0.3s ease-in-out, color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        text-align: center;
+        border: none;
+        color: var(--coral);
+        background: transparent;
+        border: 1px solid var(--coral);
+
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        &.professor {
+          color: var(--anti-flash-white);
+          border: 1px solid var(--anti-flash-white);
+        }
+      }
+
+      &-btn.active {
+        background: var(--coral) !important;
+        color: var(--anti-flash-white) !important;
+        border: none !important;
+      }
+    }
+  }
+
+  &__login-register {
+    background: var(--pine-green);
+    height: 100%;
+    width: 45%;
+    transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.professor {
+      background: linear-gradient(to right, rgba(254, 139, 92, 0.04) 0%, #FFF8F5 6%, #FFF8F5 100%);
+    }
+
+    &-container {
+      display: flex;
+      gap: 24px;
+      padding: 32px 144px;
+    }
+  }
+
+  &__login-btn {
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: 400;
+    transition: transform 0.3s ease-in-out, color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    text-align: center;
+    color: var(--anti-flash-white);
+    background-color: transparent;
+    border: 1px solid var(--coral);
+
+    &.professor {
+      color: var(--coral);
+      border: 1px solid var(--coral);
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__register-btn {
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: 400;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+    color: var(--anti-flash-white);
+    background-color: var(--coral);
+    border: 1px solid var(--coral);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: 10;
+    left: 65%;
+    top: 50%;
+    width: 400px;
+    height: 600px;
+    border-radius: 8px;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--pale-dogwood) 0px,
+      var(--pale-dogwood) 20px,
+      var(--coral) 20px,
+      var(--coral) 40px
+    );
+    filter: brightness(1.05);
+    transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.professor {
+      background: repeating-linear-gradient(
+        90deg,
+        var(--pale-dogwood) 0px,
+        var(--pale-dogwood) 20px,
+        var(--pine-green) 20px,
+        var(--pine-green) 40px
+      );
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      display: block;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &.professor {
+        width: 90%;
+        height: 90%;
+      }
+    }
+  }
+}

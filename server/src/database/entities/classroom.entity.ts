@@ -1,6 +1,5 @@
 import { IsNumber, IsString } from 'class-validator';
 import { User } from 'src/database/entities/user.entity';
-import { Subject } from 'src/database/entities/subject.entity';
 import { Enrollment } from 'src/database/entities/enrollment.entity';
 import {
     Column,
@@ -13,6 +12,8 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from 'typeorm';
+import { Course } from './course.entity';
+import { ClassroomSchedule } from './classroom-schedule.entity';
 
 @Entity('classrooms')
 export class Classroom {
@@ -27,9 +28,9 @@ export class Classroom {
     @IsNumber()
     semester: number;
 
-    @ManyToOne(() => Subject)
-    @JoinColumn({ name: 'subject_id' })
-    subject_id: number;
+    @ManyToOne(() => Course)
+    @JoinColumn({ name: 'course_id' })
+    course_id: number;
 
     @ManyToOne(() => User)
     @JoinColumn({ name: 'user_id' })
@@ -38,9 +39,8 @@ export class Classroom {
     @OneToMany(() => Enrollment, enrollment => enrollment.classroom_id)
     enrollment: Enrollment[];
 
-    @Column('text', { array: true })
-    @IsString()
-    day_of_week: number[];
+    @Column()
+    room_code: string;
 
     @CreateDateColumn()
     created_at?: Date;
@@ -50,4 +50,7 @@ export class Classroom {
 
     @DeleteDateColumn()
     deleted_at?: Date;
+
+    @OneToMany(() => ClassroomSchedule, schedule => schedule.classroom_id)
+    classroom_schedules: ClassroomSchedule[];
 }

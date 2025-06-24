@@ -1,0 +1,50 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}/* You can add global styles to this file, and also import other style files */
+:root {
+  --rich-black: #101828;
+  --anti-flash-white: #EAECF0;
+  --pale-dogwood: #F9DCCF;
+  --robin-egg-blue: #1DC9BA;
+  --coral: #FE8B5C;
+  --pine-green: #006B61;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.cpointer {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,25 @@
+<div class="sidebar">
+  <div>
+    <div class="sidebar__logo">
+      <div class="sidebar__logo-wrapper">
+        <mat-icon class="sidebar__logo-icon" fontIcon="local_library"></mat-icon>
+        <span class="sidebar__logo-text">Universihub</span>
+      </div>
+    </div>
+
+    <div class="sidebar__actions">
+      <ul class="sidebar__actions-menu">
+        @for(action of sidebarActions; track action.icon) {
+          <li class="sidebar__actions-menu-item" (click)="navigateTo(action.route)" [class.active]="currentRoute === action.route">
+            <mat-icon class="sidebar__actions-menu-item-icon" [fontIcon]="action.icon" [class.active]="currentRoute === action.route"></mat-icon>
+            {{ action.label }}
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="sidebar-footer">
+    <p>&copy; 2025 Universihub</p>
+  </div>
+</div>

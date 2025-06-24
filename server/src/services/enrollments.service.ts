@@ -45,7 +45,7 @@ export class EnrollmentsService {
                     id,
                     deleted_at: null,
                 },
-                relations: ['classroom_id', 'classroom_id.subject_id']
+                relations: ['classroom_id', 'classroom_id.major_id'],
             });
 
             if (!enrollment) {
@@ -105,18 +105,18 @@ export class EnrollmentsService {
                     year: enrollment.classroom_id.year,
                     semester: enrollment.classroom_id.semester,
                 },
-                subject: {
-                    id: enrollment.classroom_id.subject_id.id,
-                    name: enrollment.classroom_id.subject_id.name,
+                major: {
+                    id: enrollment.classroom_id.major_id.id,
+                    name: enrollment.classroom_id.major_id.name,
                 },
                 professor: {
                     id: enrollment.classroom_id.user_id.id,
                     name: enrollment.classroom_id.user_id.name,
                 },
-            }
+            };
         });
 
-        return userEnrollments
+        return userEnrollments;
     }
 
     async findByUserId(userId: number) {
@@ -124,7 +124,7 @@ export class EnrollmentsService {
             const enrollments = await this.enrollmentRepository
                 .createQueryBuilder('enrollment')
                 .leftJoinAndSelect('enrollment.classroom_id', 'classroom')
-                .leftJoinAndSelect('classroom.subject_id', 'subject')
+                .leftJoinAndSelect('classroom.major_id', 'major')
                 .leftJoinAndSelect('classroom.user_id', 'professor')
                 .where('enrollment.user_id = :userId', { userId })
                 .andWhere('enrollment.deleted_at IS NULL')

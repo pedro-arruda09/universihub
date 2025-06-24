@@ -1,0 +1,22 @@
+.auth-page {
+  background: linear-gradient(to right, rgba(254, 139, 92, 0.04) 0%, var(--anti-flash-white) 6%, var(--pale-dogwood) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 96px;
+
+  &__logo {
+    width: 100%;
+    padding: 24px 0 16px 0;
+    color: var(--coral);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+}

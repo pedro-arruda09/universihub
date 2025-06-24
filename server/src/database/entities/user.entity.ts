@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 import { IsEmail, IsEnum } from 'class-validator';
 import { Role } from 'src/common/enum/roles.enum';
-import { Course } from 'src/database/entities/course.entity';
+import { Major } from 'src/database/entities/major.entity';
 
 @Entity('users')
 export class User {
@@ -33,16 +33,16 @@ export class User {
     @Column({ type: 'varchar', length: 255 })
     address?: string;
 
-    @ManyToOne(() => Course)
-    @JoinColumn({ name: 'course_id' })
-    course_id: number;
+    @ManyToOne(() => Major)
+    @JoinColumn({ name: 'major_id' })
+    major_id: number;
 
     @Column({ type: 'varchar', length: 255 })
     @IsEnum(Role)
     role: Role;
 
-    @Column({ default: '', nullable: true })
-    picture: string;
+    @Column({ nullable: true })
+    img_url: string;
 
     @CreateDateColumn()
     created_at?: Date;

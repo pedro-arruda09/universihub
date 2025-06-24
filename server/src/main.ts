@@ -26,13 +26,13 @@ async function bootstrap() {
 
     const documentBuilderConfig = new DocumentBuilder()
         .setTitle('Universihub')
-        .setDescription('An interactive system to manage graduation courses and its participants.')
+        .setDescription('An interactive system to manage graduation majors and its participants.')
         .setVersion('1.0')
         .addBearerAuth()
         .build();
     const document = SwaggerModule.createDocument(app, documentBuilderConfig);
     SwaggerModule.setup('docs', app, document);
 
-    await app.listen(3000);
+    await app.listen(3333);
 }
 bootstrap();

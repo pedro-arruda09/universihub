@@ -141,7 +141,7 @@ export class UsersService {
 
             await fs.writeFile(fileFullPath, file.buffer);
 
-            user.picture = fileName;
+            user.img_url = fileName;
             await this.userRepository.save(user);
 
             return user;

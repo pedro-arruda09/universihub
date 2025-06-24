@@ -1,4 +1,5 @@
-import { IsNotEmpty, IsString, MaxLength, MinLength } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsNumber, IsPositive, IsString, MaxLength, MinLength } from 'class-validator';
 
 export class CreateCourseDto {
     @MinLength(3)
@@ -6,4 +7,16 @@ export class CreateCourseDto {
     @IsNotEmpty()
     @IsString()
     name: string;
+
+    @IsNumber()
+    @IsNotEmpty()
+    credits: number;
+
+    @IsNumber()
+    @IsPositive()
+    @ApiProperty({
+        example: 1,
+        description: 'The major which the course is taught.',
+    })
+    major_id: number;
 }

@@ -36,9 +36,9 @@ export class CreateUserDto {
     @IsPositive()
     @ApiProperty({
         example: 1,
-        description: 'The course which the user belongs.',
+        description: 'The major which the user belongs.',
     })
-    course_id: number;
+    major_id: number;
 
     @IsEnum(Role)
     role?: Role;

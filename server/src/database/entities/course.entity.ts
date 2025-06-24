@@ -3,12 +3,15 @@ import {
     CreateDateColumn,
     DeleteDateColumn,
     Entity,
+    JoinColumn,
+    ManyToOne,
     OneToMany,
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from 'typeorm';
-import { User } from './user.entity';
-import { Subject } from './subject.entity';
+import { IsNumber } from 'class-validator';
+import { Major } from 'src/database/entities/major.entity';
+import { Classroom } from 'src/database/entities/classroom.entity';
 
 @Entity('courses')
 export class Course {
@@ -18,11 +21,16 @@ export class Course {
     @Column({ type: 'varchar', length: 255 })
     name: string;
 
-    @OneToMany(() => User, user => user.course_id)
-    users: User[];
+    @Column()
+    @IsNumber()
+    credits: number;
 
-    @OneToMany(() => Subject, subject => subject.course_id)
-    subjects: Subject[];
+    @ManyToOne(() => Major)
+    @JoinColumn({ name: 'major_id' })
+    major_id: number;
+
+    @OneToMany(() => Classroom, classroom => classroom.course_id)
+    classrooms: Classroom[];
 
     @CreateDateColumn()
     created_at?: Date;

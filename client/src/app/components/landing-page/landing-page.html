@@ -1,0 +1,35 @@
+<main class="landing-page">
+  <section class="landing-page__about" [class.professor]="currentRole === Role.PROFESSOR">
+    <div class="landing-page__about-content">
+      <div class="landing-page__about-title">
+        <mat-icon class="landing-page__about-title-icon" fontIcon="local_library" [class.professor]="currentRole === Role.PROFESSOR"></mat-icon>
+        <h1 class="landing-page__about-title-message" [class.professor]="currentRole === Role.PROFESSOR">Universihub</h1>
+      </div>
+
+      <div class="landing-page__about-description">
+        <p class="landing-page__about-description-text" [class.professor]="currentRole === Role.PROFESSOR">
+          {{ descriptionText }}
+        </p>
+
+        <div class="landing-page__about-actions">
+          <button class="landing-page__about-actions-btn landing-page__about-actions-btn--student"
+            [class.active]="currentRole === Role.STUDENT" (click)="toggleRole(Role.STUDENT)" [class.professor]="currentRole === Role.PROFESSOR">I'm a student</button>
+          <button class="landing-page__about-actions-btn landing-page__about-actions-btn--professor"
+            [class.active]="currentRole === Role.PROFESSOR" (click)="toggleRole(Role.PROFESSOR)">I'm a
+            professor</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="landing-page__overlay" [class.professor]="currentRole === Role.PROFESSOR">
+    <img [src]="cardImgSrc" alt="Imagem central"  class="landing-page__overlay-img" />
+  </div>
+
+  <section class="landing-page__login-register" [class.professor]="currentRole === Role.PROFESSOR">
+    <div class="landing-page__login-register-container">
+      <button class="landing-page__login-btn" [class.professor]="currentRole === Role.PROFESSOR" (click)="navigateToLogin()">Login</button>
+      <button class="landing-page__register-btn" (click)="navigateToRegister()">Register</button>
+    </div>
+  </section>
+</main>
